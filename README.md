@@ -77,7 +77,7 @@ _If you are interested in contributing to kaniko, see
       - [Flag `--cleanup`](#flag---cleanup)
       - [Flag `--compressed-caching`](#flag---compressed-caching)
       - [Flag `--context-sub-path`](#flag---context-sub-path)
-      - [Flag `--customPlatform`](#flag---customplatform)
+      - [Flag `--custom-platform`](#flag---custom-platform)
       - [Flag `--digest-file`](#flag---digest-file)
       - [Flag `--dockerfile`](#flag---dockerfile)
       - [Flag `--force`](#flag---force)
@@ -563,7 +563,7 @@ docker run -ti --rm -e GOOGLE_APPLICATION_CREDENTIALS=/kaniko/config.json \
 
 #### Pushing to GCR using Workload Identity
 
-If you have enabled Workload Identity on your GKE cluster then you can use the
+If you have enabled Workload Indentity on your GKE cluster then you can use the
 workload identity to push built images to GCR without adding a
 `GOOGLE_APPLICATION_CREDENTIALS` in your kaniko pod specification.
 
@@ -839,15 +839,16 @@ Set a sub path within the given `--context`.
 Its particularly useful when your context is, for example, a git repository, and
 you want to build one of its subfolders instead of the root folder.
 
-#### Flag `--customPlatform`
+#### Flag `--custom-platform`
 
 Allows to build with another default platform than the host, similarly to docker
 build --platform xxx the value has to be on the form
-`--customPlatform=linux/arm`, with acceptable values listed here:
+`
+=linux/arm`, with acceptable values listed here:
 [GOOS/GOARCH](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63).
 
 It's also possible specifying CPU variants adding it as a third parameter (like
-`--customPlatform=linux/arm/v5`). Currently CPU variants are only known to be
+`--custom-platform=linux/arm/v5`). Currently CPU variants are only known to be
 used for the ARM architecture as listed here:
 [GOARM](https://github.com/golang/go/wiki/GoArm#supported-architectures)
 
@@ -1004,7 +1005,7 @@ multiple times for multiple registries.
 #### Flag `--skip-unused-stages`
 
 This flag builds only used stages if defined to `true`. Otherwise it builds by
-default all stages, even the unnecessary ones until it reaches the target
+default all stages, even the unnecessaries ones until it reaches the target
 stage / end of Dockerfile
 
 #### Flag `--snapshotMode`
@@ -1124,7 +1125,7 @@ profiling,
 1. Add an environment variable `STACKLOG_PATH` to your
    [pod definition](https://github.com/GoogleContainerTools/kaniko/blob/master/examples/pod-build-profile.yaml#L15).
 2. If you are using the kaniko `debug` image, you can copy the file in the
-   `pre-stop` container lifecycle hook.
+   `pre-stop` container lifecyle hook.
 
 ## Comparison with Other Tools
 
